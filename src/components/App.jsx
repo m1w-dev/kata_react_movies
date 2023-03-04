@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { Offline, Online } from 'react-detect-offline';
 import { Pagination, Spin, Alert } from 'antd';
+import debounce from 'lodash.debounce';
 
 import apiService from '../services/apiService';
 
@@ -46,10 +47,10 @@ export default class App extends Component {
 
   render() {
     const data = {
-      onSearch: (text) => {
+      onSearch: debounce((text) => {
         this.setState({ search: text });
         this.updateMovies(text);
-      },
+      }, 800),
       onTabClick: (tab) => console.log('tab', tab),
       onRate: (id, rate) => console.log('id', id, 'rate', rate),
       onPage: (page) => this.updateMovies(this.state.search, page),

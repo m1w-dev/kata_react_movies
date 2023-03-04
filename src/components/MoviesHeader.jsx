@@ -3,14 +3,14 @@ import { Tabs, Input } from 'antd';
 
 export default class MoviesHeader extends Component {
   searchbar = (
-    <Input.Search
+    <Input
       placeholder="Type to search"
-      onSearch={this.props.onSearch}
-      enterButton
+      onInput={(e) => {
+        this.props.onSearch(e.target.value);
+      }}
       allowClear
       size="large"
       style={{ width: '90%' }}
-      required
     />
   );
 
