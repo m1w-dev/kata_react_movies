@@ -1,0 +1,16 @@
+html, body {
+    font-size: 12px;   
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#root {
+    max-width: 1010px;
+}
