@@ -1,0 +1,41 @@
+html, body {
+    font-size: 12px;   
+}
+body {
+    margin: 0;
+}
+#root {
+    max-width: 1010px;
+    margin-left: auto;
+    margin-right: auto;   
+}
+.mt30 {
+    margin-top: 30px;
+}
+.mb30 {
+    margin-bottom: 30px;
+}
+.center {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.movieApp {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.imageLoader {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;    
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.offlineAlert {
+    text-align: center;
+}
