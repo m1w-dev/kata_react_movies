@@ -1,6 +1,7 @@
 html,
 body {
   font-size: 12px;
+  min-width: 500px;
 }
 body {
   margin: 0;
@@ -39,4 +40,17 @@ body {
 }
 .offlineAlert {
   text-align: center;
+}
+
+
+.moviesList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+}
+
+@media (max-width: 999px) {
+  .moviesList {
+    grid-template-columns: 1fr;
+  }
 }
