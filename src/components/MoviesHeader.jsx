@@ -23,7 +23,6 @@ export default class MoviesHeader extends Component {
     {
       key: 'rated',
       label: 'Rated',
-      disabled: true,
     },
   ];
 

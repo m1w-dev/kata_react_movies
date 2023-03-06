@@ -15,7 +15,7 @@ export default class MovieCard extends Component {
   };
 
   render() {
-    const { poster_path, title, vote_average, release_date, genre_ids, overview } = this.props.data;
+    const { poster_path, title, vote_average, release_date, genre_ids, overview, rating } = this.props.data;
 
     let releaseDate = new Date(release_date);
     releaseDate = releaseDate instanceof Date && !isNaN(releaseDate) ? format(releaseDate, 'MMMM d, y') : 'n/a';
@@ -25,7 +25,7 @@ export default class MovieCard extends Component {
       movieRate >= 70 ? '#66E900' : movieRate >= 50 ? '#E9D100' : movieRate >= 30 ? '#E97E00' : '#E90000';
 
     const genres = genre_ids.map((id) => {
-      return <MovieGenre key={id} />;
+      return <MovieGenre key={id} id={id} />;
     });
 
     const imageUrl = poster_path ? `https://image.tmdb.org/t/p/original${poster_path}` : 'null';
@@ -40,6 +40,7 @@ export default class MovieCard extends Component {
         movieRate={movieRate}
         movieRateColor={movieRateColor}
         onRate={this.props.onRate}
+        rating={rating ? rating : 0}
       />
     );
   }
@@ -94,11 +95,21 @@ const MovieData = ({ title, releaseDate, genres, overview, movieRate, movieRateC
   );
 };
 
-const MovieRate = ({ onRate }) => {
-  return <Rate allowHalf count={10} style={{ fontSize: '1.3rem' }} onChange={onRate} />;
+const MovieRate = ({ onRate, rating }) => {
+  return <Rate allowHalf count={10} style={{ fontSize: '1.3rem' }} onChange={onRate} value={rating} />;
 };
 
-const MovieCardTemplate = ({ imageUrl, title, releaseDate, genres, overview, movieRate, movieRateColor, onRate }) => {
+const MovieCardTemplate = ({
+  imageUrl,
+  title,
+  releaseDate,
+  genres,
+  overview,
+  movieRate,
+  movieRateColor,
+  onRate,
+  rating,
+}) => {
   return (
     <Row style={{ width: 450, boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.15)' }}>
       <Col span={10}>
@@ -119,7 +130,7 @@ const MovieCardTemplate = ({ imageUrl, title, releaseDate, genres, overview, mov
         />
         <Row>
           <Col span={24} style={{ textAlign: 'center' }}>
-            <MovieRate onRate={onRate} />
+            <MovieRate onRate={onRate} rating={rating} />
           </Col>
         </Row>
       </Col>
