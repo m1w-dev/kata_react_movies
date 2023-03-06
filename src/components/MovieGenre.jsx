@@ -1,4 +1,5 @@
 import { Tag } from 'antd';
+import propTypes from 'prop-types';
 
 import { GenresConsumer } from './GenresContext';
 
@@ -12,6 +13,13 @@ const MovieGenre = ({ id }) => {
       }}
     </GenresConsumer>
   );
+};
+
+MovieGenre.defaultProps = {
+  id: undefined,
+};
+MovieGenre.propTypes = {
+  id: propTypes.any.isRequired,
 };
 
 export default MovieGenre;

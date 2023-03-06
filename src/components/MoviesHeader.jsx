@@ -1,7 +1,17 @@
 import { Component } from 'react';
 import { Tabs, Input } from 'antd';
+import propTypes from 'prop-types';
 
 export default class MoviesHeader extends Component {
+  static defaultProps = {
+    onSearch: () => {},
+    onTabClick: () => {},
+  };
+  static propTypes = {
+    onSearch: propTypes.func,
+    onTabClick: propTypes.func,
+  };
+
   searchbar = (
     <Input
       placeholder="Type to search"

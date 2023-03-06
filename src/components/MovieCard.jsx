@@ -1,10 +1,30 @@
 import { Component } from 'react';
 import { Col, Row, Image, Typography, Progress, Rate, Spin } from 'antd';
 import { format } from 'date-fns';
+import propTypes from 'prop-types';
 
 import MovieGenre from './MovieGenre';
 
 export default class MovieCard extends Component {
+  static defaultProps = {
+    data: {},
+    id: undefined,
+    onRate: () => {},
+  };
+  static propTypes = {
+    data: propTypes.shape({
+      poster_path: propTypes.string,
+      title: propTypes.string,
+      vote_average: propTypes.number,
+      release_date: propTypes.string,
+      genre_ids: propTypes.arrayOf(propTypes.number),
+      overview: propTypes.string,
+      rating: propTypes.number,
+    }),
+    id: propTypes.any.isRequired,
+    onRate: propTypes.func,
+  };
+
   clipDescription = (text, clip = 180) => {
     if (!text) return '';
     text = text.trim();
