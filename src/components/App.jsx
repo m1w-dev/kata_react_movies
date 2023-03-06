@@ -111,8 +111,8 @@ export default class App extends Component {
 
   componentDidMount() {
     this.getGenres();
-    this.updateMovies(this.state.search);
     this.getGuestSessionKey();
+    this.updateMovies(this.state.search);
   }
 
   componentWillUnmount() {}
