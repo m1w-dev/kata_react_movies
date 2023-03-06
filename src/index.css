@@ -42,7 +42,6 @@ body {
   text-align: center;
 }
 
-
 .moviesList {
   display: grid;
   grid-template-columns: 1fr 1fr;
