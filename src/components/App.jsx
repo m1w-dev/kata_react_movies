@@ -172,13 +172,9 @@ export default class App extends Component {
         <Alert message="Server Error" description="Something went wrong... Please try again later" type="error" />
       ) : null;
 
-    const pollingConfig = {
-      interval: 30000,
-    };
-
     return (
       <div className="movieApp">
-        <Online polling={pollingConfig}>
+        <Online>
           <header className="mb30 center">
             <MoviesHeader onSearch={data.onSearch} onTabClick={data.onTabClick} />
           </header>
@@ -200,7 +196,7 @@ export default class App extends Component {
             />
           </footer>
         </Online>
-        <Offline polling={pollingConfig}>
+        <Offline>
           <Alert
             message="Offline"
             description="Please check your Internet Connection"
